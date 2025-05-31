@@ -74,8 +74,8 @@ T^- = \sum_{\substack{1 \leq i \leq n \\ X_i < 0}} R_i.
 $$
 
 where 
-- $ X_i $ is the ith observation
-- $ R_i $ is the rank of the ith observation
+- $X_i$ is the ith observation
+- $R_i$ is the rank of the ith observation
 
 Note
 - If several observations have the same absolute value (tie), then assign each observation with the mean rank for these observations.
