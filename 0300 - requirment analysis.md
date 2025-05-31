@@ -14,11 +14,11 @@
     - [Sample Code (SAS)](#sample-code-SAS)
     - [Limitations/Notes (SAS)](#limitationsnotes-SAS)
   - [R (asht)](#r-asht)
-    - [Function/Procedure (R)](#functionprocedure-R)
-    - [Inputs (R)](#inputs-R)
-    - [Outputs (R)](#outputs-R)
-    - [Sample Code (R)](#sample-code-R)
-    - [Limitations/Notes (R)](#limitationsnotes-R)
+    - [Function/Procedure (R-asht)](#functionprocedure-Rasht)
+    - [Inputs (R-asht)](#inputs-Rasht)
+    - [Outputs (R-asht)](#outputs-Rasht)
+    - [Sample Code (R-asht)](#sample-code-Rasht)
+    - [Limitations/Notes (R-asht)](#limitationsnotes-Rasht)
   - [R (stats)](#r-stats)
     - [Function/Procedure (R)](#functionprocedure-R)
     - [Inputs (R)](#inputs-R)
@@ -83,14 +83,10 @@ Note
 **P-value**:
 - Exact Method: (Small sample sizes (typically n ≤ 20))
     - Two sided:  
-    $$
-    p = \frac{\text{Number of combinations with rank sum } \geq \text{ observed } T^+ \text{ and } \leq \text{ observed } T^-}{2^n}
-    $$
+    $$p = \frac{\text{Number of combinations with rank sum } \geq \text{ observed } T^+ \text{ and } \leq \text{ observed } T^-}{2^n}$$
 
     - One sided:  
-    $$
-    p = \frac{\text{Number of combinations with rank sum } \geq \text{ observed } T^+ (\text{or} \leq \text{ observed } T^-)}{2^n}
-    $$
+    $$p = \frac{\text{Number of combinations with rank sum } \geq \text{ observed } T^+ (\text{or} \leq \text{ observed } T^-)}{2^n}$$
 
 - Normal Approximation:
     - No Ties:
@@ -168,10 +164,10 @@ $$
 ---
 ## R (asht)
 
-### Function/Procedure (R)
+### Function/Procedure (R-asht)
 Use `wsrTest` from base R `asht` package. 
 
-### Inputs (R)
+### Inputs (R-asht)
 - **Required**: 
     - `x` (numeric vector of data)
 
@@ -184,7 +180,7 @@ Use `wsrTest` from base R `asht` package.
     - `digits` (number of digits to display, default is NULL)
     - `tieDigits` (number of digits for tied values, default is 8)
 
-### Outputs (R)
+### Outputs (R-asht)
 - T+ statistic
 - P-value 
 - Confidence Interval 
@@ -192,13 +188,13 @@ Use `wsrTest` from base R `asht` package.
 - Alternative (a character string describing the alternative hypothesis) 
 - Rank details (if there are tied ranks, some additional information about how ties are handled and the rank computation may be included)
 
-### Sample Code (R)
+### Sample Code (R-asht)
 ```r
 wsrTest(x, y = NULL, conf.int = TRUE, conf.level = 0.95,
    mu = 0, alternative = c("two.sided", "less", "greater"),
    digits = NULL, tieDigits=8)
 ```
-### Limitations/Notes (R)
+### Limitations/Notes (R-asht)
 - This function calculates the **exact** Wilcoxon signed rank test using the Pratt method if there are zeros. In other words, rank the differences equal to zero together with the absolute value of the differences, but then permute the signs of only the non-zero ranks. 
 
 ---
