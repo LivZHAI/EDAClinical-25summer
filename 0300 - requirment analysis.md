@@ -83,19 +83,15 @@ Note
 **P-value**:
 - Exact Method: (Small sample sizes (typically n ≤ 20))
     - Two sided:  
-    $$
-    p = \frac{\text{Number of combinations with rank sum } \geq \text{ observed } T^+ \text{ and } \leq \text{ observed } T^-}{2^n}
-    $$
+    ![function](https://quicklatex.com/cache3/90/ql_7ca5768b3028e45863630b71f9e4bb90_l3.png)
 
-    - One sided:  
-    $$
-    p = \frac{\text{Number of combinations with rank sum } \geq \text{ observed } T^+ (\text{or} \leq \text{ observed } T^-)}{2^n}
-    $$
+    - One sided:
+    ![function](https://quicklatex.com/cache3/be/ql_c4a3b22a9f318d6daaf99a9fde4b41be_l3.png)
 
 - Normal Approximation:
     - No Ties:
     $$
-    Z_T = \frac{\left| T_+ - \left[ \frac{n(n+1)}{4} \right] \right| - 0.5}{\sqrt{ \frac{n(n+1)(2n+1)}{24} }}
+    Z_T = \frac{\left| T_+ - \left[ \frac{n(n+1)}{4} \right] \right| - 0.5}{\sqrt{ \frac{n(n+1)(2n+1)}{24}}}
     $$
 
     - Ties:
