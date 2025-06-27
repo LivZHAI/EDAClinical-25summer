@@ -90,14 +90,10 @@ Note
 
 - Normal Approximation:
     - No Ties:
-    $$
-    Z_T = \frac{\left| T_+ - \left[ \frac{n(n+1)}{4} \right] \right| - 0.5}{\sqrt{ \frac{n(n+1)(2n+1)}{24}}}
-    $$
+    ![function](https://quicklatex.com/cache3/82/ql_903eac10fad2363f0a7306c8a6df8782_l3.png)
 
     - Ties:
-    $$
-    Z_T = \frac{\left| T_+ - \left[ \frac{n(n+1)}{4} \right] \right| - 0.5}{\sqrt{\frac{n(n+1)(2n+1)}{24} - \sum_{i=1}^{g} \frac{t_i^3 - t_i}{48}}}
-    $$
+    ![function](https://quicklatex.com/cache3/43/ql_d84933d90df877620829b0dcf4210043_l3.png)
 
 where  
 - $g$ = number of tied groups  
