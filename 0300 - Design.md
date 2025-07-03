@@ -17,6 +17,41 @@ To keep synchronous input dataset with CAMIS Project's, we still use anonymized 
 
 Wilcoxon signed rank test was applied to analyse the time to return to baseline FEV1 post-mannitol challenge 2. Median difference, p value and 95% CI were provided using the Hodges-Lehmann estimate.
 
+Please note: the dataset is simulated by Python and not pointed to any real clinical trial.
+
+```python
+# simulated initialized statistics
+np.random.seed(100)
+num_patients = 50
+mean_time_A = 25
+mean_time_B = 22
+sd_time = 5
+
+# To make sure there is no zero or ties in differences
+# Generate differences with a minimum absolute difference threshold
+min_diff = 0.1 
+
+# Generate recovery times for treatment A
+time_A = np.random.normal(loc=mean_time_A, scale=sd_time, size=num_patients).round(3)
+# Generate differences with a normal distribution centered around (mean_time_B - mean_time_A)
+diffs = np.random.normal(loc=(mean_time_B - mean_time_A), scale=sd_time/2, size=num_patients)
+# Make sure differences are not too close to zero
+diffs = np.where(np.abs(diffs) < min_diff, np.sign(diffs) * min_diff, diffs)
+time_B = (time_A + diffs).round(3)
+
+# Create patient IDs
+patient_ids = [f"CAMIS-{i:03}" for i in range(1, num_patients + 1)]
+
+# Build DataFrame
+crossover_df = pd.DataFrame({
+    "PATIENT": patient_ids,
+    "TIME_TO_BASELINE_A": time_A,
+    "TIME_TO_BASELINE_B": time_B
+})
+
+crossover_df.to_csv("Wilcoxon_signed_rank_dataset.csv", index=False)
+```
+
 # Define Numeric Agreement Criteria
 
 - Test Statistic (abs diff < 0.000001)
